@@ -1,6 +1,8 @@
 name: All Platforms
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
 
 jobs:
   build:
