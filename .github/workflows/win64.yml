@@ -31,9 +31,9 @@ jobs:
         cmd.exe /c dir * /s /n /a-h 
         cmd.exe /c echo "${{github.workspace}}/install-${{matrix.link_type}}-${{matrix.build_type}}" /s /n /-ah
     - name: compress
-      run: tar zcvf pthread-win32_latest.tar.gz --directory=${{github.workspace}}/install-${{matrix.link_type}}-${{matrix.build_type}} --exclude=CMakeFiles --exclude=*.cmake --exclude=Makefile --exclude=rtl_app_ver.h .
+      run: tar zcvf pthread-win32_latest-${{matrix.link_type}}-${{matrix.build_type}}.tar.gz --directory=${{github.workspace}}/install-${{matrix.link_type}}-${{matrix.build_type}} --exclude=CMakeFiles --exclude=*.cmake --exclude=Makefile --exclude=rtl_app_ver.h .
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v4
       with:
         name: ubuntu_latest_build
-        path: librtlsdr_build_ubuntu-amd64_latest.tar.gz
+        path: pthread-win32_latest-${{matrix.link_type}}-${{matrix.build_type}}.tar.gz
