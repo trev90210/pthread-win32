@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2025]
+        os: [windows-latest]
         build_type: ['Release', 'Debug']
         link_type: ['static', 'shared']
         include:
@@ -19,7 +19,7 @@ jobs:
             BUILD_SHARED_LIBS: ON
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Build
       run: |
@@ -35,5 +35,5 @@ jobs:
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: ubuntu_latest_build
+        name: windows_latest_build-${{matrix.link_type}}-${{matrix.build_type}}
         path: pthread-win32_latest-${{matrix.link_type}}-${{matrix.build_type}}.tar.gz
