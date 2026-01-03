@@ -28,7 +28,7 @@ jobs:
       
     - name: list
       run: |
-        ls -lashR install
+        dir install
     - name: compress
       run: tar zcvf librtlsdr_build_ubuntu-amd64_latest.tar.gz --directory=build/src --exclude=CMakeFiles --exclude=*.cmake --exclude=Makefile --exclude=rtl_app_ver.h .
     - name: 'Upload Artifact'
