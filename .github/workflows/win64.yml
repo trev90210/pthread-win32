@@ -36,4 +36,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: windows_latest_build-${{matrix.link_type}}-${{matrix.build_type}}
-        path: pthread-win32_latest-${{matrix.link_type}}-${{matrix.build_type}}.tar.gz
+        #path: pthread-win32_latest-${{matrix.link_type}}-${{matrix.build_type}}.tar.gz
+        path: ${{github.workspace}}/install-${{matrix.link_type}}-${{matrix.build_type}}
